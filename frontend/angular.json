@@ -24,7 +24,10 @@
                 "input": "projects/mati3d-public/public"
               }
             ],
-            "styles": ["projects/mati3d-public/src/styles.css"],
+            "styles": [
+              "projects/mati3d-public/src/tailwind.css",
+              "projects/mati3d-public/src/styles.css"
+            ],
             "server": "projects/mati3d-public/src/main.server.ts",
             "outputMode": "server",
             "security": {
@@ -93,7 +96,8 @@
                 "input": "projects/mati3d-admin/public"
               }
             ],
-            "styles": ["projects/mati3d-admin/src/styles.css"]
+            "styles": [
+              "projects/mati3d-admin/src/styles.css"]
           },
           "configurations": {
             "production": {

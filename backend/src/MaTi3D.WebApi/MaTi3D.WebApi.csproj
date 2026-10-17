@@ -4,4 +4,8 @@
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MaTi3D.ServiceDefaults\MaTi3D.ServiceDefaults.csproj" />
+  </ItemGroup>
+
 </Project>

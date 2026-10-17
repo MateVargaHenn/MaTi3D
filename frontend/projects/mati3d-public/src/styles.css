@@ -1,2 +1,253 @@
 /* You can add global styles to this file, and also import other style files */
-@import "tailwindcss";
+:root {
+    color-scheme:dark;
+    --text:#f5f5f3;
+    --muted:#abb2bb;
+    --accent:#ff8534;
+    --blue:#27afc2;
+    --surface:#12171d;
+    --line:#30353d
+}
+* {
+    box-sizing:border-box;
+}
+html {
+    scroll-behavior:smooth;
+}
+body {
+    margin:0;
+    background:#0b0e12;
+    color: var(--text);
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 1rem;
+    line-height:1.6;
+}
+a {
+    color:inherit;
+    text-underline-offset:.3em;
+}
+p {
+    margin:0 0 1rem;
+}
+button,input,textarea,select {
+    font:inherit;
+}
+button,a
+{
+    -webkit-tap-highlight-color:transparent;
+}
+:focus-visible { 
+    outline:3px solid var(--blue);
+    outline-offset:4px;
+}
+button {
+    cursor:pointer;
+}
+h1,h2,h3 {
+    letter-spacing:-.045em;
+    line-height:1.15;
+}
+.button {
+    display:inline-flex;
+    align-items:center; 
+    justify-content:center;
+    padding:.85rem 1.35rem;
+    min-height:3rem;
+    border:1px solid #49515c;
+    border-radius:5px;
+    font-size:.9375rem;
+    font-weight:600;
+    text-decoration:none;
+    cursor:pointer;
+    background:transparent;
+    color:var(--text);
+    transition:background .2s;
+}
+.button.primary {
+    background:var(--accent);
+    border-color:var(--accent);
+    color:#16110d;
+}
+.button.compact {
+    padding:.65rem 1rem;
+    min-height:2.7rem;
+}
+.button:hover { 
+    background:#222a33;
+}
+.button.primary:hover {
+    background:#ff9c59;
+}
+.button:disabled {
+    cursor:wait;
+    opacity:.6;
+}
+.card {
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:1.75rem;
+}
+.card h2,
+.card h3 {
+    font-size:1.4rem;
+    margin:0 0 1rem;
+}
+.card p {
+    color:var(--muted);
+}
+.section-title {
+    font-size:clamp(1.9rem,4vw,2.75rem);
+    margin:0;
+}
+.section-heading {
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:1.5rem;
+    margin-bottom:2rem;
+}
+.eyebrow {
+    font-family:monospace;
+    text-transform:uppercase;
+    letter-spacing:.13em;
+    font-size:.8125rem;
+    color:var(--accent);
+    margin-bottom:1rem;
+}
+.prose {
+    max-width:48rem;
+    color:var(--muted);
+    font-size:1.125rem;
+    line-height:1.75;
+}
+.text-link {
+    font-size:.9375rem;
+    white-space:nowrap;
+}
+.section-space {
+    margin-top:5.5rem;
+}
+.form-field {
+    margin-bottom:1.4rem;
+}
+.form-field label {
+    display:block;
+    margin-bottom:.5rem;
+    font-weight:500;
+    font-size:.9375rem;
+}
+.form-field input,
+.form-field select,
+.form-field textarea {
+    width:100%;
+    min-height:3rem;
+    padding:.75rem 1rem;
+    border:1px solid #434b55;
+    border-radius:5px;
+    background:#0d1116;
+    color:var(--text);
+}
+.form-field textarea {
+    resize:vertical;
+}
+.form-field [aria-invalid="true"] {
+    border-color:#ff8b83;
+}
+.field-error {
+    display:block;
+    color:#ffaaa4;
+    margin-top:.35rem;
+    font-size:.875rem;
+}
+.field-error:empty {
+    display:none;
+}
+.muted {
+    color:var(--muted);
+}
+.notice {
+    border-left:2px solid var(--blue);
+    padding:.7rem 1rem;
+    background:#132329;
+    color:#c5dce0;
+    font-size:.875rem;
+    margin-bottom:1.75rem;
+}
+.pill {
+    display:inline-block;
+    border:1px solid #444d56;
+    border-radius:4px;
+    font-family:monospace;
+    font-size:.75rem;
+    padding:.2rem .5rem;
+    color:#c6cdd5;
+}
+.actions {
+    display:flex;
+    gap:1rem;
+    flex-wrap:wrap;
+}
+.separator {
+    height:1px;
+    background:var(--line);
+    margin:3rem 0;
+}
+img {
+    max-width:100%;
+}
+.service-list {
+    display:grid;
+    gap:1px;
+    border:1px solid var(--line);
+    background:var(--line);
+    border-radius:8px;
+    overflow:hidden;
+}
+.service-row {
+    display:grid;
+    grid-template-columns:3rem 1fr 1.2fr auto;
+    gap:1.5rem;
+    align-items:center;
+    padding:2rem;
+    background:#11161c;
+}
+.service-number {
+    color:var(--blue);
+    font-family:monospace;
+}
+.service-row h3 {
+    font-size:1.6rem;
+    margin:0;
+}
+.service-row p {
+    margin:0;
+    color:var(--muted);
+    font-size:.9375rem;
+}
+.service-row a {
+    font-size:.875rem;
+}
+.steps {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:2rem;
+    list-style:none;
+    padding:0;
+}
+.steps li {
+    border-top:1px solid var(--line);
+    padding-top:1.4rem;
+}
+.steps span {
+    font-family:monospace;
+    color:var(--accent);
+}
+.steps h3 {
+    font-size:1.35rem;
+    margin:1rem 0;
+}
+.steps p {
+    font-size:.9375rem;
+    color:var(--muted);
+}
