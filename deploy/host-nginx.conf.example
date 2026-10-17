@@ -1,0 +1,31 @@
+# Replace /etc/nginx/sites-available/mati3d.hu only after containers pass smoke checks.
+# Existing certificate and Certbot renewal are reused.
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+    server_name mati3d.hu www.mati3d.hu;
+    ssl_certificate /etc/letsencrypt/live/mati3d.hu/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/mati3d.hu/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+    client_max_body_size 100m;
+
+    location / {
+        proxy_pass http://127.0.0.1:18081;
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-For $remote_addr;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header Forwarded "";
+        proxy_set_header X-Forwarded-Host "";
+        proxy_set_header X-Forwarded-Port "";
+        proxy_set_header X-Forwarded-Prefix "";
+    }
+}
+
+server {
+    listen 80;
+    listen [::]:80;
+    server_name mati3d.hu www.mati3d.hu;
+    return 301 https://$host$request_uri;
+}

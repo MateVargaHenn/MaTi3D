@@ -11,3 +11,7 @@
 .env
 .env.*
 !.env.example
+# Private preview credentials and certificates
+deploy/*.htpasswd
+**/*.pem
+**/*.key
