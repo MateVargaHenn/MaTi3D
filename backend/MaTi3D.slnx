@@ -1,0 +1,5 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/MaTi3D.WebApi/MaTi3D.WebApi.csproj" />
+  </Folder>
+</Solution>

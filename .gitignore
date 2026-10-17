@@ -1,0 +1,13 @@
+# .NET
+**/bin/
+**/obj/
+
+# Frontend
+**/node_modules/
+**/dist/
+**/.angular/
+
+# Helyi környezeti változók
+.env
+.env.*
+!.env.example

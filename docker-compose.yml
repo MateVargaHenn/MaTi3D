@@ -1,0 +1,23 @@
+name: mati3d
+
+services:
+  postgres:
+    image: postgres:18
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-mati3d}
+      POSTGRES_USER: ${POSTGRES_USER:-mati3d}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Add meg a POSTGRES_PASSWORD erteket a .env fajlban}
+    ports:
+      - "127.0.0.1:${POSTGRES_PORT:-5433}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U \"$${POSTGRES_USER}\" -d \"$${POSTGRES_DB}\""]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+
+volumes:
+  postgres_data:
